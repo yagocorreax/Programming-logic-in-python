@@ -16,6 +16,8 @@ def soma(a, b):
     Esta função deve retornar a soma dos números 'a' e 'b'.
     """
     # Escreva o seu código aqui
+    soma = a + b
+    return soma
     pass
 
 # --- Testes Unitários ---
