@@ -18,6 +18,9 @@ def encontrar_maior_numero(numeros):
     Esta função deve encontrar e retornar o maior número na lista 'numeros'.
     """
     # Escreva o seu código aqui
+    if len(numeros) == 0:
+        return None
+    return max(numeros)
     pass
 
 # --- Testes Unitários ---
