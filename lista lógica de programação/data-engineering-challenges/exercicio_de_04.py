@@ -21,6 +21,15 @@ def contar_frequencia_palavras(frase):
     # Dica: use frase.lower() para converter para minúsculas
     # Dica: use re.sub(r'[^\w\s]', '', frase) para remover pontuação
     # Escreva o seu código aqui
+    import re
+    from collections import Counter
+    
+    frase = frase.lower()
+    frase = re.sub(r'[,\.\!]', '', frase)
+    palavras = frase.split()
+
+    return Counter(palavras)
+
     pass
 
 # --- Testes Unitários ---
@@ -40,6 +49,7 @@ def test_contar_frequencia_palavras():
 
 if __name__ == "__main__":
     test_contar_frequencia_palavras()
+
 
 # Resultado esperado:
 # Todos os testes para 'contar_frequencia_palavras' passaram!
