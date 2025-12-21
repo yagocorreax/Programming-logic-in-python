@@ -17,6 +17,10 @@ def chave_existe(dicionario, chave):
     Esta função deve verificar se 'chave' existe no 'dicionario'.
     """
     # Escreva o seu código aqui
+    if chave in dicionario:
+       return True
+    else:
+        return False
     pass
 
 # --- Testes Unitários ---
