@@ -19,6 +19,15 @@ def dividir(a, b):
     """
     # Dica: use um bloco try...except ZeroDivisionError
     # Escreva o seu código aqui
+    try:
+        number1 = a
+        number2 = b
+        divisao = a/b
+        return divisao
+    except:
+        if ZeroDivisionError:
+            return "Erro: Divisão por zero não é permitida"
+
     pass
 
 # --- Testes Unitários ---
