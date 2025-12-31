@@ -3,27 +3,24 @@ from mysql.connector import Error
 
 try:
     cnx = mysql.connector.connect(host='localhost', database='db_meusprodutos', user='root', password='Anninha16!')
-
-    inserir_produtos =      """
-                        INSERT INTO produtos(id_produto, nome_produto, valor, quantidade)
-                            VALUES
-                            (1, 'Iphone 16', 6200, 5),
-                            (2, 'Macbook', 10000, 7),
-                            (3, 'Iphone 11', 1200, 6),
-                            (4, 'Iphone 14', 3400, 3)
-                            """
-
+    consulta_sql = "select * from produtos"
     cursor = cnx.cursor()
-    cursor.execute(inserir_produtos)
-    cnx.commit()
+    cursor.execute(consulta_sql)
+    linhas = cursor.fetchall()
+    print("Número total de registros retornados: ", cursor.rowcount())
 
-    print(cursor.rowcount, "Registros inseridos na tabela!")
-    cursor.close()
+    print("\nMostrar os produtos cadastrados\n")
+    for linha in linhas:
+        print("id_produto:", linha[0])
+        print("nome_produto:", linha[1])
+        print("valor", linha[2])
+        print("quantidade", linha[3], "\n")
 
-except Error as erro:
-    print("Falha ao inserir dados no MySQL: ", erro)
+except Error as e:
+    print("Erro ao acessar tabela MySQL", e)
 finally:
     if (cnx.is_connected()):
-       cnx.close()
-       print("Conexão ao MySQL finalizada!")
+        cursor.close()
+        cnx.close()
+        print("Conexão MySQL finalizada")
                             
